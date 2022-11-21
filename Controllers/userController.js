@@ -4,7 +4,6 @@ import generateJWT from '../helpers/generateJWT.js'
 
 const createUser = async (req, res) => {
     
-    // Evitar registros duplicados
     const { dni } = req.body;
     const existUser = await User.findOne({ dni });
     if (existUser) {
@@ -28,7 +27,7 @@ const createUser = async (req, res) => {
 const signIn = async (req, res) => { 
 
   const { email, password } = req.body;
-  // Comprobar si el usuario existe
+  
   const user = await User.findOne({ email });
   
   if (!user) {
@@ -36,7 +35,6 @@ const signIn = async (req, res) => {
     return res.status(404).json({ msg: error.message });
   }
 
-  // Comprobar su password
   if (await user.comprobarPassword(password)) {
     res.json({
       _id: user._id,
