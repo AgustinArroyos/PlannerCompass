@@ -16,7 +16,7 @@ const createUser = async (req, res) => {
     user.token = generateID();
     await user.save();
 
-    res.json({
+    res.status(200).json({
       msg: "User created successfully",
     });
   } catch (error) {
@@ -36,7 +36,7 @@ const signIn = async (req, res) => {
   }
 
   if (await user.comprobarPassword(password)) {
-    res.json({
+    res.status(200).json({
       _id: user._id,
       nombre: user.nombre,
       email: user.email,

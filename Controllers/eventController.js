@@ -7,7 +7,7 @@ import Event from "../Models/Events.js"
 const showEvent = async (req, res) => {
   const event = await Event.find();
 
-  res.json(event);
+  res.status(200).json(event);
 
 }
 
@@ -21,7 +21,7 @@ const showEventbyid = async (req, res) => {
     const error = new Error("Not found event");
     return res.status(404).json({ msg: error.message });
   }
-  res.json(event);
+  res.status(200).json(event);
 
 }
 
@@ -39,7 +39,7 @@ const showEventbyday = async (req, res) => {
   const eventDate = await Event.find({ dateTime: { $gte: dateStart, $lte: dateEnd } });
 
 
-  res.json(eventDate);
+  res.status(200).json(eventDate);
 
 
 }
@@ -51,7 +51,7 @@ const createEvent = async (req, res) => {
 
   try {
     const eventAlmacenado = await event.save();
-    res.json(eventAlmacenado);
+    res.status(200).json(eventAlmacenado);
   } catch (error) {
     console.log(error);
   }
@@ -75,7 +75,7 @@ const deleteEventbyid = async (req, res) => {
   try {
 
     await event.deleteOne();
-    res.json({ msg: "Deleted Project by id" });
+    res.status(200).json({ msg: "Deleted Project by id" });
   } catch (error) {
     console.log(error);
   }
@@ -104,7 +104,7 @@ const deleteEventbyday = async (req, res) => {
 
   try {
     await event.deleteOne();
-    res.json({ msg: "Deleted Project by weekday" });
+    res.status(200).json({ msg: "Deleted Project by weekday" });
   } catch (error) {
     console.log(error);
   }
