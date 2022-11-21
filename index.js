@@ -11,15 +11,15 @@ dotenv.config();
 conectDB();
 app.use(express.json())
 
-app.use('/api/v1/users',userrouter)
+app.use('/api/v1/users', userrouter)
 
-app.use('/api/v1/events',eventrouter)
+app.use('/api/v1/events', eventrouter)
 
-app.use('/api/v1/event',eventdrouter)
+app.use('/api/v1/event', eventdrouter)
 
 
 
 const PORT = process.env.PORT || 4000
-app.listen(PORT, ()=>{
+app.listen(PORT, () => {
     console.log(`Server in ${PORT}`)
 })

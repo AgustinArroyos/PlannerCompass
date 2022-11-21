@@ -4,36 +4,36 @@ import bcrypt from "bcrypt";
 const userSchema = mongoose.Schema(
   {
     firstName: {
-       type: String,
-       required: true,
-       trim: true,
+      type: String,
+      required: true,
+      trim: true,
     },
-    
+
     lastName: {
-       type: String,
-       required: true,
-       trim: true,
+      type: String,
+      required: true,
+      trim: true,
     },
-    
-    
+
+
     birthDate: {
-       type: Date,
-       required: true,
-      
+      type: Date,
+      required: true,
+
     },
 
     city: {
-        type: String,
-        required: true,
-        trim: true,
+      type: String,
+      required: true,
+      trim: true,
     },
-    
-    
+
+
     country: {
       type: String,
       required: true,
       trim: true,
-   },
+    },
 
     password: {
       type: String,
@@ -45,19 +45,19 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
       trim: true,
-      
+
     },
     dni: {
       type: String,
       required: true,
       trim: true,
-      
+
     },
 
     token: {
       type: String,
     },
-   
+
   },
   {
     timestamps: true,

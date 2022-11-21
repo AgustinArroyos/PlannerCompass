@@ -3,35 +3,35 @@ import generateID from '../helpers/generateid.js'
 import generateJWT from '../helpers/generateJWT.js'
 
 const createUser = async (req, res) => {
-    
-    const { dni } = req.body;
-    const existUser = await User.findOne({ dni });
-    if (existUser) {
-      const error = new Error("The D.N.I. is already registered");
-      return res.status(400).json({ msg: error.message });
-    }
 
-    try {
-      const user = new User(req.body);
-      user.token = generateID();
-      await user.save();
-  
-      res.json({
-        msg: "User created successfully",
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  
-const signIn = async (req, res) => { 
+  const { dni } = req.body;
+  const existUser = await User.findOne({ dni });
+  if (existUser) {
+    const error = new Error("The D.N.I. is already registered");
+    return res.status(400).json({ msg: error.message });
+  }
+
+  try {
+    const user = new User(req.body);
+    user.token = generateID();
+    await user.save();
+
+    res.json({
+      msg: "User created successfully",
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const signIn = async (req, res) => {
 
   const { email, password } = req.body;
-  
+
   const user = await User.findOne({ email });
-  
+
   if (!user) {
-    const error = new Error("User not found");
+    const error = new Error("User not found!");
     return res.status(404).json({ msg: error.message });
   }
 
@@ -45,13 +45,14 @@ const signIn = async (req, res) => {
   } else {
     const error = new Error("Password is incorrect");
     return res.status(403).json({ msg: error.message });
-  }}
+  }
+}
 
-  const perfil = async (req, res) => {
-    const  { usuario } = req
+const perfil = async (req, res) => {
+  const { usuario } = req
 
-    res.json(usuario);
-    
-      };
+  res.json(usuario);
 
- export {createUser,signIn, perfil} ;
+};
+
+export { createUser, signIn, perfil };
