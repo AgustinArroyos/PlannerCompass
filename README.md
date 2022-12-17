@@ -29,8 +29,9 @@ https://planner-compass.herokuapp.com/api/v1/users/signup // missing update
 	"city": "Posadas",
 	"country": "Jardin",
 	"email": "agustin@gmail.com",
-	"dni": "500000",
-	"password": "123456"
+	"dni": "700000",
+	"password": "12345678",
+	"confirmPassword": "12345678"
 }
 
 ```
@@ -49,7 +50,7 @@ https://planner-compass.herokuapp.com/api/v1/users/signin // missing update
 ***We need authorization of type bear token to manipulate events*
 **
 
->Token example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzN2JhMDFjMDQ5YzAxZGMxZWFjZTdiYSIsImlhdCI6MTY2OTA0NjM1MCwiZXhwIjoxNjcxNjM4MzUwfQ.D8PvocYXLS-O8mYtbT1oOPDDKy1k-A-r_03ZRaDWBKs // missing update
+>Token example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzN2JhMDFjMDQ5YzAxZGMxZWFjZTdiYSIsImlhdCI6MTY2OTA0NjM1MCwiZXhwIjoxNjcxNjM4MzUwfQ.D8PvocYXLS-O8mYtbT1oOPDDKy1k-A-r_03ZRaDWBKs 
 
 #### Create event(POST)
 http://localhost:4000/api/v1/events/ // local endpoint
