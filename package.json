@@ -5,7 +5,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "./node_modules/.bin/netlify-lambda build src"
   },
   "author": "AgustinArroyos",
   "license": "ISC",
@@ -15,7 +16,9 @@
     "express": "^4.18.2",
     "joi": "^17.7.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.7.2"
+    "mongoose": "^6.7.2",
+    "netlify-lambda": "^2.0.15",
+    "serverless-http": "^3.1.0"
   },
   "devDependencies": {
     "eslint": "^8.28.0",
