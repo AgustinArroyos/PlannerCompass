@@ -82,7 +82,7 @@ https://planner-compass.herokuapp.com/api/v1/events/{ID} // missing update
 #### Find and show an event by day(GET)
 http://localhost:4000/api/v1/events/{dayweek} // local endpoint
 
-https://planner-compass.herokuapp.com/api/v1/events/{2022-11-12}// missing update
+https://planner-compass.herokuapp.com/api/v1/events/{2022-11-12} //missing update
 > dayweek example: monday
 
 
@@ -90,10 +90,10 @@ https://planner-compass.herokuapp.com/api/v1/events/{2022-11-12}// missing updat
 #### Find and Delete an event by id(DELETE)
 http://localhost:4000/api/v1/events/{ID} // local endpoint
 
-https://planner-compass.herokuapp.com/api/v1/events/6378e8d09abdd0ae560e01f7// missing update
+https://planner-compass.herokuapp.com/api/v1/events/6378e8d09abdd0ae560e01f7 //missing update
 
 #### Find and Delete an event by date(DELETE)
 http://localhost:4000/api/v1/event/{dayweek} // local endpoint
 > dayweek example: monday
-https://planner-compass.herokuapp.com/api/v1/event/2022-11-11// missing update
+https://planner-compass.herokuapp.com/api/v1/event/2022-11-11 //missing update
 
