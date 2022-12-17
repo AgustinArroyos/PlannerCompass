@@ -28,18 +28,11 @@ const showEventbyid = async (req, res) => {
 //GET  /events/{dayOfTheWeek}
 const showEventbyday = async (req, res) => {
 
-  const { year, month, day } = req.params;
-  let months = parseInt(month) - 1
-  let days1 = parseInt(day)
-  let days2 = parseInt(day) + 1;
+  const { weekDay } = req.params;
 
-  const dateStart = new Date(year, months, days1)
-  const dateEnd = new Date(year, months, days2)
+  const event = await Event.find({ dayOfWeek: weekDay });
 
-  const eventDate = await Event.find({ dateTime: { $gte: dateStart, $lte: dateEnd } });
-
-
-  res.status(200).json(eventDate);
+  res.status(200).json(event);
 
 
 }
@@ -82,19 +75,11 @@ const deleteEventbyid = async (req, res) => {
 
 }
 
-//DELETE  /events/{id}
+//DELETE  /events/{weekDay}
 const deleteEventbyday = async (req, res) => {
+  const { weekDay } = req.params;
 
-  const { year1, month1, day1 } = req.params;
-  let months = parseInt(month1) - 1
-  let days1 = parseInt(day1)
-  let days2 = parseInt(day1) + 1;
-
-  const dateStart = new Date(year1, months, days1)
-  const dateEnd = new Date(year1, months, days2)
-
-  const event = await Event.findOne({ dateTime: { $gte: dateStart, $lte: dateEnd } });
-
+  const event = await Event.find({ dayOfWeek: weekDay });
 
   if (!event) {
     const error = new Error("Not found event");

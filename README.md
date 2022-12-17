@@ -1,11 +1,25 @@
 # PlannerCompass
 
-# Challenge #02
+# Challenge #03
 
-### Postman endpoints 
+
+## Requirements
+
+- Node.js
+- npm (comes with Node.js)
+
+## Installation Local
+
+1. Clone this repository
+2. Install dependencies with `npm install`
+3. Start the server with `npm run start`
+
+### Postman endpoints
+
 
 #### Register(POST)
-https://planner-compass.herokuapp.com/api/v1/users/signup
+http://localhost:4000/api/v1/users/signup
+https://planner-compass.herokuapp.com/api/v1/users/signup // missing update
 ```javascript
 {
 	"firstName": "Agustin",
@@ -21,7 +35,8 @@ https://planner-compass.herokuapp.com/api/v1/users/signup
 ```
 
 #### Login(POST)
-https://planner-compass.herokuapp.com/api/v1/users/signin
+http://localhost:4000/api/v1/users/signin
+https://planner-compass.herokuapp.com/api/v1/users/signin // missing update
 ```javascript
 {
     "email":"agustin@gmail.com",
@@ -35,7 +50,8 @@ https://planner-compass.herokuapp.com/api/v1/users/signin
 >Token example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzN2JhMDFjMDQ5YzAxZGMxZWFjZTdiYSIsImlhdCI6MTY2OTA0NjM1MCwiZXhwIjoxNjcxNjM4MzUwfQ.D8PvocYXLS-O8mYtbT1oOPDDKy1k-A-r_03ZRaDWBKs
 
 #### Create event(POST)
-https://planner-compass.herokuapp.com/api/v1/events/
+http://localhost:4000/api/v1/events/
+https://planner-compass.herokuapp.com/api/v1/events/ // missing update
 
 ```javascript
 { 
@@ -46,25 +62,26 @@ https://planner-compass.herokuapp.com/api/v1/events/
 ```
 
 #### Show all event(GET)
-https://planner-compass.herokuapp.com/api/v1/events/
+http://localhost:4000/api/v1/events/
+https://planner-compass.herokuapp.com/api/v1/events/ // missing update
 
 
 #### Find and show an event by its id(GET)
-https://planner-compass.herokuapp.com/api/v1/events/{ID}
+https://planner-compass.herokuapp.com/api/v1/events/{ID} // missing update
 > ID example: 6378e8dd9abdd0ae560e01fa
 
 
 
 #### Find and show an event by date(GET)
-https://planner-compass.herokuapp.com/api/v1/events/{2022-11-12}
+https://planner-compass.herokuapp.com/api/v1/events/{2022-11-12}// missing update
 > ID example: 2022-11-12
 
 
 
 #### Find and Delete an event by id(DELETE)
-https://planner-compass.herokuapp.com/api/v1/events/6378e8d09abdd0ae560e01f7
+https://planner-compass.herokuapp.com/api/v1/events/6378e8d09abdd0ae560e01f7// missing update
 
 #### Find and Delete an event by date(DELETE)
 
-https://planner-compass.herokuapp.com/api/v1/event/2022-11-11
+https://planner-compass.herokuapp.com/api/v1/event/2022-11-11// missing update
 

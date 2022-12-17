@@ -1,10 +1,36 @@
 import User from '../Models/User.js'
 import generateID from '../helpers/generateid.js'
 import generateJWT from '../helpers/generateJWT.js'
+import Joi from 'joi';
+
+
+
+const userSchema = Joi.object().keys({
+  firstName: Joi.string().min(1).max(100).required(),
+  lastName: Joi.string().min(1).max(100).required(),
+  dni: Joi.string().min(1).max(100).required(),
+  birthDate: Joi.date().required(),
+  city: Joi.string().min(1).max(100).required(),
+  country: Joi.string().min(1).max(100).required(),
+  email: Joi.string().email().required(),
+  password: Joi.string().min(8).max(100).required(),
+  confirmPassword: Joi.string().valid(Joi.ref('password')).required()
+});
+
+
 
 const createUser = async (req, res) => {
+  const { value, error } = userSchema.validate(req.body);
 
-  const { dni } = req.body;
+  if (error) {
+    res.status(400).send(error);
+    return;
+  }
+
+
+
+
+  const { dni } = value;
   const existUser = await User.findOne({ dni });
   if (existUser) {
     const error = new Error("The D.N.I. is already registered");
@@ -22,6 +48,7 @@ const createUser = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
+
 };
 
 const signIn = async (req, res) => {
