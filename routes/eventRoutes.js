@@ -33,10 +33,10 @@ router.post('/', checkAuth, createEvent);
 //DELETE  /events/{id}
 router.delete('/:id', checkAuth, deleteEventbyid);
 
-
+/*
 //DELETE /events/{dayOfTheWeek}
 router.delete('/:weekDay', checkAuth, deleteEventbyday);
-
+*/
 
 
 

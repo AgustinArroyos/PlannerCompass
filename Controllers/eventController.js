@@ -7,12 +7,14 @@ import Event from "../Models/Events.js"
 const showEvent = async (req, res) => {
   const event = await Event.find();
 
+
   res.status(200).json(event);
 
 }
 
 //GET  /events/{id}
 const showEventbyid = async (req, res) => {
+
   const { id } = req.params;
 
   const event = await Event.findById(id)
@@ -55,7 +57,7 @@ const createEvent = async (req, res) => {
 
 //DELETE  /events/{id}
 const deleteEventbyid = async (req, res) => {
-
+  console.log("asdf");
   const { id } = req.params;
 
   const event = await Event.findById(id)
@@ -88,7 +90,8 @@ const deleteEventbyday = async (req, res) => {
 
 
   try {
-    await event.deleteOne();
+    await event[0].deleteOne();
+    console.log(event);
     res.status(200).json({ msg: "Deleted Project by weekday" });
   } catch (error) {
     console.log(error);
