@@ -21,7 +21,7 @@
 #### Register(POST)
 http://localhost:4000/api/v1/users/signup // local endpoint
 
-https://planner-compass.herokuapp.com/api/v1/users/signup // missing update
+https://plannercompass.onrender.com/api/v1/users/signup // deployment endpoint
 ```javascript
 {
 	"firstName": "Agustin",
@@ -29,72 +29,73 @@ https://planner-compass.herokuapp.com/api/v1/users/signup // missing update
 	"birthDate": "1999-8-19",
 	"city": "Posadas",
 	"country": "Jardin",
-	"email": "agustin@gmail.com",
+	"email": "Anibal@gmail.com",
 	"dni": "700000",
 	"password": "12345678",
 	"confirmPassword": "12345678"
 }
+
 
 ```
 
 #### Login(POST)
 http://localhost:4000/api/v1/users/signin // local endpoint
 
-https://planner-compass.herokuapp.com/api/v1/users/signin // missing update
+https://plannercompass.onrender.com/api/v1/users/signin // deployment endpoint
 ```javascript
 {
-    "email":"agustin@gmail.com",
-    "password":"123456"
+    "email":"Anibal@gmail.com",
+    "password":"12345678"
 }
 ```
 
 ***We need authorization of type bear token to manipulate events*
 **
 
->Token example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzN2JhMDFjMDQ5YzAxZGMxZWFjZTdiYSIsImlhdCI6MTY2OTA0NjM1MCwiZXhwIjoxNjcxNjM4MzUwfQ.D8PvocYXLS-O8mYtbT1oOPDDKy1k-A-r_03ZRaDWBKs 
+>Token example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTA2N2JjYTg0MWFjNGZkZjQ3NTZkNCIsImlhdCI6MTY3MTQ1Njc1MCwiZXhwIjoxNjc0MDQ4NzUwfQ.woTyB0taivIFogRsuohoLhQmJKf-0IvrCHmOfQZ1_8Q 
 
 #### Create event(POST)
 http://localhost:4000/api/v1/events/ // local endpoint
 
-https://planner-compass.herokuapp.com/api/v1/events/ // missing update
+https://plannercompass.onrender.com/api/v1/events // deployment endpoint
 
 ```javascript
-{ 
-"description": "evento 4",
-"dateTime": "2022-10-12T14:47:32.962Z",
-"createdAt": "2022-10-12T14:47:32.962Z"
+{
+"description": "event 3",
+"dayOfWeek": "wednesday"
 }
+
 ```
 
 #### Show all event(GET)
-http://localhost:4000/api/v1/events/  //localendpoint
+http://localhost:4000/api/v1/events/  //local endpoint
 
-https://planner-compass.herokuapp.com/api/v1/events/ // missing update
+https://plannercompass.onrender.com/api/v1/events/ // deployment endpoint
 
 
 #### Find and show an event by its id(GET)
-http://localhost:4000/api/v1/events/{ID} // local endpoint
+http://localhost:4000/api/v1/events/id/{ID} // local endpoint
 
-https://planner-compass.herokuapp.com/api/v1/events/{ID} // missing update
-> ID example: 6378e8dd9abdd0ae560e01fa // missing update
+https://plannercompass.onrender.com/api/v1/events/id/{ID} // deployment endpoint
+> ID example: 63a074bad5377d69ae4349c9 
 
 
 
 #### Find and show an event by day(GET)
-http://localhost:4000/api/v1/events/{dayweek} // local endpoint
+http://localhost:4000/api/v1/events/day/{dayweek} // local endpoint
 
-https://planner-compass.herokuapp.com/api/v1/events/{2022-11-12} //missing update
-> dayweek example: monday
+https://plannercompass.onrender.com/api/v1/events/day/{dayweek} // deployment endpoint
+> dayweek example: saturday
 
 
 
 #### Find and Delete an event by id(DELETE)
 http://localhost:4000/api/v1/events/{ID} // local endpoint
 
-https://planner-compass.herokuapp.com/api/v1/events/6378e8d09abdd0ae560e01f7 //missing update
+https://plannercompass.onrender.com/api/v1/events/{ID} // deployment endpoint
 
 #### Find and Delete an event by date(DELETE)
 http://localhost:4000/api/v1/event/{dayweek} // local endpoint
 > dayweek example: monday
-https://planner-compass.herokuapp.com/api/v1/event/2022-11-11 //missing update
+https://plannercompass.onrender.com/api/v1/event/{dayweek} // deployment endpoint
 
