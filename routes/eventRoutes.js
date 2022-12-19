@@ -19,11 +19,11 @@ router.get('/', checkAuth, showEvent);
 
 
 //GET  /events/{dayOfTheWeek}
-router.get('/:weekDay', checkAuth, showEventbyday);
+router.get('/day/:weekDay', checkAuth, showEventbyday);
 
 
 //GET  /events/{id} 
-router.get('/:id', checkAuth, showEventbyid);
+router.get('/id/:id', checkAuth, showEventbyid);
 
 
 //POST /events

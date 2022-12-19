@@ -12,7 +12,8 @@
 
 1. Clone this repository
 2. Install dependencies with `npm install`
-3. Start the server with `npm run start`
+3. Start the server with `npm run start` or `npm run dev` for development
+4. You can use the endpoints with postman
 
 ### Postman endpoints
 
