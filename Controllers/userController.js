@@ -3,8 +3,6 @@ import generateID from '../helpers/generateid.js'
 import generateJWT from '../helpers/generateJWT.js'
 import Joi from 'joi';
 
-
-
 const userSchema = Joi.object().keys({
   firstName: Joi.string().min(1).max(100).required(),
   lastName: Joi.string().min(1).max(100).required(),
@@ -17,8 +15,6 @@ const userSchema = Joi.object().keys({
   confirmPassword: Joi.string().valid(Joi.ref('password')).required()
 });
 
-
-
 const createUser = async (req, res) => {
   const { value, error } = userSchema.validate(req.body);
 
@@ -26,10 +22,6 @@ const createUser = async (req, res) => {
     res.status(400).send(error);
     return;
   }
-
-
-
-
   const { dni } = value;
   const existUser = await User.findOne({ dni });
   if (existUser) {
@@ -65,7 +57,7 @@ const signIn = async (req, res) => {
   if (await user.comprobarPassword(password)) {
     res.status(200).json({
       _id: user._id,
-      nombre: user.nombre,
+      firstName: user.firstName,
       email: user.email,
       token: generateJWT(user._id),
     });
@@ -75,6 +67,9 @@ const signIn = async (req, res) => {
   }
 }
 
+
+
+//
 const perfil = async (req, res) => {
   const { usuario } = req
 

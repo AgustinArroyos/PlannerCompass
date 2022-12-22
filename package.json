@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "test": "set NODE_OPTIONS=--experimental-vm-modules && jest --detectOpenHandles"
   },
   "author": "AgustinArroyos",
   "license": "ISC",
