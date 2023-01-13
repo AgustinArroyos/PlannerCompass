@@ -15,7 +15,7 @@
 3. Start the server with `npm run start` or `npm run dev` for development
 4. You can use the endpoints with postman
 
-### Postman endpoints
+##  Endpoints
 
 
 #### Register(POST)
@@ -97,5 +97,6 @@ https://plannercompass.onrender.com/api/v1/events/{ID} // deployment endpoint
 #### Find and Delete an event by date(DELETE)
 http://localhost:4000/api/v1/event/{dayweek} // local endpoint
 > dayweek example: monday
+
 https://plannercompass.onrender.com/api/v1/event/{dayweek} // deployment endpoint
 
