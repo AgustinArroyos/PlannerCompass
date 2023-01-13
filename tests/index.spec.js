@@ -1,11 +1,12 @@
 import app from "../app";
-import { createEvent } from "../Controllers/eventController.js";
+import { createEvent, showEvent, showEventbyday, } from "../Controllers/eventController.js";
+import { createUser, signIn } from "../Controllers/userController.js";
 import jest from "jest-mock";
 import request from "supertest";
 
 //Unit Testing for Controllers
 describe("Unit Testing Controllers", function () {
-    describe("Create Event", function () {
+    describe("Test -> createEvent", function () {
         it("should create a new event", async function () {
 
             const req = {
@@ -31,9 +32,114 @@ describe("Unit Testing Controllers", function () {
         });
 
     })
+    describe("Test -> showEvent", function () {
+        it("should show all events", async function () {
+
+
+            const req = {
+
+            };
+            const res = {
+                status: jest.fn().mockReturnThis(),
+                json: jest.fn().mockReturnThis()
+            };
+            const returnedEvents = await showEvent(req, res);
+
+            expect(returnedEvents).toBeInstanceOf(Array);
+            expect(returnedEvents[0]).toHaveProperty("description");
+            expect(returnedEvents[0]).toHaveProperty("dayOfWeek");
+            expect(returnedEvents[0].description).toBe("Event unit Test");
+            expect(returnedEvents[0].dayOfWeek).toBe("Monday");
+
+        });
+
+    })
+
+    describe("Test -> showEventbyday", function () {
+        it("should show event by day", async function () {
+
+
+            const req = {
+                params: { weekDay: "Monday" }
+
+            };
+            const res = {
+                status: jest.fn().mockReturnThis(),
+                json: jest.fn().mockReturnThis()
+            };
+            const returnedEventsbyday = await showEventbyday(req, res);
+
+            expect(returnedEventsbyday).toBeInstanceOf(Array);
+            expect(returnedEventsbyday[0].description).toBe("Event unit Test");
+            expect(returnedEventsbyday[0].dayOfWeek).toBe("Monday");
+
+        });
+
+    })
+
+    describe("Test -> createUser", function () {
+        it("should create User", async function () {
+
+            // If you want to test the user creation, you need to delete the user from the database or change the email and dni of the user (same in the signIn test)
+            //otherwise it will not be created again
+            const req = {
+                body: {
+                    "firstName": "testname",
+                    "lastName": "testlastname",
+                    "birthDate": "1999-8-19",
+                    "city": "testcity",
+                    "country": "testcountry",
+                    "email": "test@gmail.com",
+                    "dni": "300000",
+                    "password": "testpassword",
+                    "confirmPassword": "testpassword",
+
+                }
+            }
+            const res = {
+                status: jest.fn().mockReturnThis(),
+                json: jest.fn().mockReturnThis()
+            };
+            const returneduser = await createUser(req, res);
+
+            expect(returneduser.firstName).toBe("testname");
+            expect(returneduser.lastName).toBe("testlastname");
+            expect(returneduser.city).toBe("testcity");
+            expect(returneduser.country).toBe("testcountry");
+            expect(returneduser.email).toBe("test@gmail.com");
+            expect(returneduser.dni).toBe("300000");
+
+        });
+    })
+    describe("Test -> signIn", function () {
+        it("should Login User", async function () {
+
+            // If you change the email and dni in the createUser test, you must change it here too
+            const req = {
+                body: {
+                    "email": "test@gmail.com",
+                    "password": "testpassword"
+                }
+            }
+            const res = {
+                status: jest.fn().mockReturnThis(),
+                json: jest.fn().mockReturnThis()
+            };
+            const returneduser = await signIn(req, res);
+
+
+            expect(returneduser.firstName).toBe("testname");
+            expect(returneduser.email).toBe("test@gmail.com");
+            expect(returneduser.dni).toBe("300000");
+            expect(returneduser.city).toBe("testcity");
+            expect(returneduser.country).toBe("testcountry");
+
+
+
+        });
+    })
+
 })
-
-
 
 
 
@@ -174,7 +280,6 @@ function loginUser(auth) {
 
         function onResponse(err, res) {
             auth.token = res.body.token;
-            console.log(auth.token);
             return done();
         }
     };

@@ -9,6 +9,7 @@ const showEvent = async (req, res) => {
 
 
   res.status(200).json(event);
+  return event;
 
 }
 
@@ -31,11 +32,11 @@ const showEventbyid = async (req, res) => {
 const showEventbyday = async (req, res) => {
 
   const { weekDay } = req.params;
-
+  console.log(req.params);
   const event = await Event.find({ dayOfWeek: weekDay });
 
   res.status(200).json(event);
-
+  return event;
 
 }
 

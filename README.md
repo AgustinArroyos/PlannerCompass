@@ -15,6 +15,19 @@
 3. Start the server with `npm run start` or `npm run dev` for development
 4. You can use the endpoints with postman
 
+## Testing
+
+1. Run `npm run test` to run the tests
+(IMPORTANT NOTE: If this account is already registered , two tests will fail, because the email is already registered. To solve this, you can change the email in the test file, or delete the account from the database)
+```javascript
+{
+    "email": "test@gmail.com",
+    "password": "testpassword"
+}
+```
+)
+
+
 ##  Endpoints
 
 

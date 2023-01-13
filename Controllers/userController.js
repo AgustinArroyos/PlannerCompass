@@ -37,6 +37,7 @@ const createUser = async (req, res) => {
     res.status(200).json({
       msg: "User created successfully",
     });
+    return user;
   } catch (error) {
     console.log(error);
   }
@@ -61,6 +62,7 @@ const signIn = async (req, res) => {
       email: user.email,
       token: generateJWT(user._id),
     });
+    return user;
   } else {
     const error = new Error("Password is incorrect");
     return res.status(403).json({ msg: error.message });
