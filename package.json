@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "set NODE_OPTIONS=--experimental-vm-modules && jest --detectOpenHandles"
+    "test": "set NODE_OPTIONS=--experimental-vm-modules && jest --detectOpenHandles --forceExit"
   },
   "author": "AgustinArroyos",
   "license": "ISC",

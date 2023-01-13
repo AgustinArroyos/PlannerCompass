@@ -47,6 +47,7 @@ const createEvent = async (req, res) => {
   try {
     const eventAlmacenado = await event.save();
     res.status(200).json(eventAlmacenado);
+    return eventAlmacenado;
   } catch (error) {
     console.log(error);
   }
